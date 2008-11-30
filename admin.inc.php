@@ -7,9 +7,9 @@ function atf_options() {
 	$atf_settings = atf_read_options();
 
 	if($_POST['atf_save']){
-		$atf_settings[htmlbefore] = stripslashes($_POST['htmlbefore']);
-		$atf_settings[htmlafter] = stripslashes($_POST['htmlafter']);
-		$atf_settings[copyrightnotice] = stripslashes($_POST['copyrightnotice']);
+		$atf_settings[htmlbefore] = ($_POST['htmlbefore']);
+		$atf_settings[htmlafter] = ($_POST['htmlafter']);
+		$atf_settings[copyrightnotice] = ($_POST['copyrightnotice']);
 		$atf_settings[emailaddress] = $_POST['emailaddress'];
 		$atf_settings[addhtmlbefore] = (($_POST['addhtmlbefore']) ? true : false);
 		$atf_settings[addhtmlafter] = (($_POST['addhtmlafter']) ? true : false);
@@ -65,7 +65,7 @@ function atf_options() {
     </p>
     <p>
       <label>
-      <textarea name="htmlbefore" id="htmlbefore" cols="45" rows="5"><?php echo $atf_settings[htmlbefore]; ?></textarea>
+      <textarea name="htmlbefore" id="htmlbefore" cols="45" rows="5"><?php echo stripslashes($atf_settings[htmlbefore]); ?></textarea>
       </label>
     </p>
     <p>
@@ -76,7 +76,7 @@ function atf_options() {
     </p>
     <p>
       <label>
-      <textarea name="htmlafter" id="htmlafter" cols="45" rows="5"><?php echo $atf_settings[htmlafter]; ?></textarea>
+      <textarea name="htmlafter" id="htmlafter" cols="45" rows="5"><?php echo stripslashes($atf_settings[htmlafter]); ?></textarea>
       </label>
     </p>
     <p>
@@ -87,7 +87,7 @@ function atf_options() {
     </p>
     <p>
       <label><?php _e('Copyright Notice','ald_atf_plugin'); ?><br />
-      <textarea name="copyrightnotice" id="copyrightnotice" cols="45" rows="5"><?php echo $atf_settings[copyrightnotice]; ?></textarea>
+      <textarea name="copyrightnotice" id="copyrightnotice" cols="45" rows="5"><?php echo stripslashes($atf_settings[copyrightnotice]); ?></textarea>
       </label>
     </p>
     <p>

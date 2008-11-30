@@ -31,19 +31,19 @@ function ald_atf($content)
     if(is_feed()) {
 		if($atf_settings[addhtmlbefore])
 		{
-			$str_before .= $atf_settings[htmlbefore];
+			$str_before .= stripslashes($atf_settings[htmlbefore]);
 			$str_before .= '<br />';
 		}
 		
 		if($atf_settings[addhtmlafter])
 		{
-			$str_after .= $atf_settings[htmlafter];
+			$str_after .= stripslashes($atf_settings[htmlafter]);
 			$str_after .= '<br />';
 		}
 		
 		if($atf_settings[addcopyright])
 		{
-			$str_after .= $atf_settings[copyrightnotice];
+			$str_after .= stripslashes($atf_settings[copyrightnotice]);
 			$str_after .= '<br />';
 		}
 		
