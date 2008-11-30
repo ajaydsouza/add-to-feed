@@ -7,9 +7,9 @@ function atf_options() {
 	$atf_settings = atf_read_options();
 
 	if($_POST['atf_save']){
-		$atf_settings[htmlbefore] = $_POST['htmlbefore'];
-		$atf_settings[htmlafter] = $_POST['htmlafter'];
-		$atf_settings[copyrightnotice] = $_POST['copyrightnotice'];
+		$atf_settings[htmlbefore] = stripslashes($_POST['htmlbefore']);
+		$atf_settings[htmlafter] = stripslashes($_POST['htmlafter']);
+		$atf_settings[copyrightnotice] = stripslashes($_POST['copyrightnotice']);
 		$atf_settings[emailaddress] = $_POST['emailaddress'];
 		$atf_settings[addhtmlbefore] = (($_POST['addhtmlbefore']) ? true : false);
 		$atf_settings[addhtmlafter] = (($_POST['addhtmlafter']) ? true : false);
