@@ -63,7 +63,7 @@ add_filter('the_content', 'ald_atf',99999999);
 // Default Options
 function atf_default_options() {
 	$copyrightnotice = '&copy;'. date("Y").' &quot;<a href="'.get_option('home').'">'.get_option('blogname').'</a>&quot;. ';
-	$copyrightnotice .= __('Use of this feed is for personal non-commercial use only. If you are not reading this article in your feed reader, then the site is guilty of copyright infringement. Please contact me at ','ald_atf_plugin');
+	$copyrightnotice .= __('Use of this feed is for personal non-commercial use only. If you are not reading this article in your feed reader, then the site is guilty of copyright infringement. Please contact me at ','ald_atf_plugin', 'myald_atf_plugin');
 	$copyrightnotice .= get_option('admin_email');
 
 	$atf_settings = 	Array (
