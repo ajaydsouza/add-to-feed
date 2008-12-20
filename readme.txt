@@ -3,6 +3,8 @@ Tags: Add to Feed, feeds, feed, copyright
 Contributors: Ajay D'Souza
 Donate link: http://ajaydsouza.com/donate/
 Stable tag: trunk
+Requires at least: 2.1
+Tested up to: 2.7
 
 Add a copyright notice and/or custom text/HTML to your feed.
 

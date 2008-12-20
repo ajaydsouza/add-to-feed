@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Add to Feed
-Version:     1.0
+Version:     1.1
 Plugin URI:  http://ajaydsouza.com/wordpress/plugins/add-to-feed/
 Description: Add to Feed is a feed enhancement plugin that allows you to easily add a copyright notice and custom text/HTML to your WordPress blog feed. The custom text can be entered before and/or after the content of your blog post. <a href="options-general.php?page=atf_options">Configure...</a>
 Author:      Ajay D'Souza
@@ -23,10 +23,10 @@ define('ALD_ATF_DIR', dirname(__FILE__));
 function ald_atf($content)
 {
 	$atf_settings = atf_read_options();
-	$creditline = '<br/><span style="font-size: 0.8em">Feed enhanced by the <a href="http://ajaydsouza.com/wordpress/plugins/add-to-feed/">Add To Feed Plugin</a> by <a href="http://ajaydsouza.com/">Ajay D\'Souza</a></span>';
+	$creditline = '<br /><span style="font-size: 0.8em">Feed enhanced by the <a href="http://ajaydsouza.com/wordpress/plugins/add-to-feed/">Add To Feed Plugin</a> by <a href="http://ajaydsouza.com/">Ajay D\'Souza</a></span>';
 	
 	$str_before ='';
-	$str_after ='<br />';
+	$str_after ='<hr style="border-top:black solid 1px" />';
 	
     if(is_feed()) {
 		if($atf_settings[addhtmlbefore])
@@ -38,6 +38,12 @@ function ald_atf($content)
 		if($atf_settings[addhtmlafter])
 		{
 			$str_after .= stripslashes($atf_settings[htmlafter]);
+			$str_after .= '<br />';
+		}
+		
+		if($atf_settings[addtitle])
+		{
+			$str_after .= '<a href="'.get_permalink().'">'.the_title('','',false).'</a> was first posted on '.get_the_time('F j, Y').' at '.get_the_time('g:i a').'.';
 			$str_after .= '<br />';
 		}
 		
@@ -63,7 +69,7 @@ add_filter('the_content', 'ald_atf',99999999);
 // Default Options
 function atf_default_options() {
 	$copyrightnotice = '&copy;'. date("Y").' &quot;<a href="'.get_option('home').'">'.get_option('blogname').'</a>&quot;. ';
-	$copyrightnotice .= __('Use of this feed is for personal non-commercial use only. If you are not reading this article in your feed reader, then the site is guilty of copyright infringement. Please contact me at ','ald_atf_plugin', 'myald_atf_plugin');
+	$copyrightnotice .= __('Use of this feed is for personal non-commercial use only. If you are not reading this article in your feed reader, then the site is guilty of copyright infringement. Please contact me at ','ald_atf_plugin');
 	$copyrightnotice .= get_option('admin_email');
 
 	$atf_settings = 	Array (
@@ -73,6 +79,7 @@ function atf_default_options() {
 						emailaddress => get_option('admin_email'),		// Admin Email
 						addhtmlbefore => false,		// Add HTML to Feed?
 						addhtmlafter => false,		// Add HTML to Feed?
+						addtitle => true,		// Add title to the post?
 						addcopyright => true,		// Add copyright notice?
 						addcredit => true,		// Show credits?
 						);
