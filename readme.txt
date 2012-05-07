@@ -3,14 +3,17 @@ Tags: Add to Feed, feeds, feed, copyright
 Contributors: Ajay D'Souza
 Donate link: http://ajaydsouza.com/donate/
 Stable tag: trunk
-Requires at least: 2.1
-Tested up to: 2.7
+Requires at least: 3.0
+Tested up to: 3.5
+License: GPLv2
 
 Add a copyright notice and/or custom text/HTML to your feed.
 
 == Description ==
 
 <a href="http://ajaydsouza.com/wordpress/plugins/add-to-feed/">Add to Feed</a> is a feed enhancement plugin that allows you to easily add a copyright notice and custom text/HTML to your WordPress blog feed. The custom text can be entered before and/or after the content of your blog post.
+
+If you are looking for a more power, check out <a href="http://ajaydsouza.com/wordpress/plugins/add-to-all/">Add to All</a>.
 
 == Installation ==
 
@@ -22,18 +25,39 @@ Add a copyright notice and/or custom text/HTML to your feed.
 
 4. Goto Settings > Add to Feed to customize
 
+== Upgrade Notice ==
+
+= 1.2 =
+* Modified: Redesigned admin interface
+* Modified: Plugin comes disabled by default. Visit the admin page to enable
+* Fixed: php warnings
+
+== Changelog ==
+
+= 1.2 =
+* Modified: Redesigned admin interface
+* Modified: Plugin comes disabled by default. Visit the admin page to enable
+* Fixed: php warnings
+
+= 1.1 =
+* Added: Option to display a link to the post along with the post date in the feed
+* Added: Displays a horizontal line before the copyright notice
+* Added: Deleting the plugin from the admin area will cleanly uninstall the plugin completely.
+
+= 1.0 =
+* Release
+
+== Screenshots ==
+
+1. Add to Feed options
+
 
 == Frequently Asked Questions ==
 
-= What are the requirements for this plugin? =
-
-WordPress 2.5 or above
+If your question isn't listed here, please post a comment at the <a href="http://wordpress.org/tags/add-to-feed?forum_id=10">WordPress.org support forum</a>. I monitor the forums on an ongoing basis. If you're looking for more advanced support, please see <a href="http://ajaydsouza.com/support/">details here</a>.
 
 = Can I customize what is displayed? =
 
-You can select the text you want displayed in the feed
+Several customization options are available via the Settings page in WordPress Admin. You can access this via <strong>Settings &raquo; Add to Feed</strong>
 
-= Support =
-
-All questions need to be redirected at http://ajaydsouza.org/
-No support questions will be entertained in the comments or via email.
+For more information, please visit http://ajaydsouza.com/wordpress/plugins/add-to-feed/
