@@ -13,7 +13,7 @@ Add a copyright notice and/or custom text/HTML to your feed.
 
 <a href="http://ajaydsouza.com/wordpress/plugins/add-to-feed/">Add to Feed</a> is a feed enhancement plugin that allows you to easily add a copyright notice and custom text/HTML to your WordPress blog feed. The custom text can be entered before and/or after the content of your blog post.
 
-If you are looking for a more power, check out <a href="http://ajaydsouza.com/wordpress/plugins/add-to-all/">Add to All</a>.
+If you are looking for more power, check out <a href="http://ajaydsouza.com/wordpress/plugins/add-to-all/">Add to All</a>.
 
 == Installation ==
 
