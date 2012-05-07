@@ -1,21 +1,42 @@
 <?php
 /*
 Plugin Name: Add to Feed
-Version:     1.1
+Version:     1.2
 Plugin URI:  http://ajaydsouza.com/wordpress/plugins/add-to-feed/
-Description: Add to Feed is a feed enhancement plugin that allows you to easily add a copyright notice and custom text/HTML to your WordPress blog feed. The custom text can be entered before and/or after the content of your blog post. <a href="options-general.php?page=atf_options">Configure...</a>
+Description: Add to Feed is a feed enhancement plugin that allows you to easily add a copyright notice and custom text/HTML to your WordPress blog feed. The custom text can be entered before and/or after the content of your blog post.
 Author:      Ajay D'Souza
 Author URI:  http://ajaydsouza.com/
 */
 
 if (!defined('ABSPATH')) die("Aren't you supposed to come here via WP-Admin?");
 
+define('ALD_ATF_DIR', dirname(__FILE__));
+define('ATF_LOCAL_NAME', 'atf');
+
+// Pre-2.6 compatibility
+if ( ! defined( 'WP_CONTENT_URL' ) )
+      define( 'WP_CONTENT_URL', get_option( 'siteurl' ) . '/wp-content' );
+if ( ! defined( 'WP_CONTENT_DIR' ) )
+      define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
+if ( ! defined( 'WP_PLUGIN_URL' ) )
+      define( 'WP_PLUGIN_URL', WP_CONTENT_URL. '/plugins' );
+if ( ! defined( 'WP_PLUGIN_DIR' ) )
+      define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins' );
+
+// Guess the location
+$atf_path = WP_PLUGIN_DIR.'/'.plugin_basename(dirname(__FILE__));
+$atf_url = WP_PLUGIN_URL.'/'.plugin_basename(dirname(__FILE__));
+
 function ald_atf_init() {
-     load_plugin_textdomain('myald_atf_plugin', PLUGINDIR.'/'.dirname(plugin_basename(__FILE__)));
+	//* Begin Localization Code */
+	$atf_localizationName = ATF_LOCAL_NAME;
+	$atf_comments_locale = get_locale();
+	$atf_comments_mofile = ALD_ATF_DIR . "/languages/" . $atf_localizationName . "-". $atf_comments_locale.".mo";
+	load_textdomain($atf_localizationName, $atf_comments_mofile);
+	//* End Localization Code */
 }
 add_action('init', 'ald_atf_init');
 
-define('ALD_ATF_DIR', dirname(__FILE__));
 
 /*********************************************************************
 *				Main Function (Do not edit)							*
@@ -28,7 +49,7 @@ function ald_atf($content)
 	$str_before ='';
 	$str_after ='<hr style="border-top:black solid 1px" />';
 	
-    if(is_feed()) {
+    if(is_feed()&&$atf_settings[enable_plugin]) {
 		if($atf_settings[addhtmlbefore])
 		{
 			$str_before .= stripslashes($atf_settings[htmlbefore]);
@@ -73,15 +94,16 @@ function atf_default_options() {
 	$copyrightnotice .= get_option('admin_email');
 
 	$atf_settings = 	Array (
-						htmlbefore => '',		// HTML you want added to the feed
-						htmlafter => '',		// HTML you want added to the feed
-						copyrightnotice => $copyrightnotice,		// Copyright Notice
-						emailaddress => get_option('admin_email'),		// Admin Email
-						addhtmlbefore => false,		// Add HTML to Feed?
-						addhtmlafter => false,		// Add HTML to Feed?
-						addtitle => true,		// Add title to the post?
-						addcopyright => true,		// Add copyright notice?
-						addcredit => true,		// Show credits?
+						'enable_plugin' => false,		// Add HTML to Feed?
+						'htmlbefore' => '',		// HTML you want added to the feed
+						'htmlafter' => '',		// HTML you want added to the feed
+						'copyrightnotice' => $copyrightnotice,		// Copyright Notice
+						'emailaddress' => get_option('admin_email'),		// Admin Email
+						'addhtmlbefore' => false,		// Add HTML to Feed?
+						'addhtmlafter' => false,		// Add HTML to Feed?
+						'addtitle' => true,		// Add title to the post?
+						'addcopyright' => true,		// Add copyright notice?
+						'addcredit' => false,		// Show credits?
 						);
 	return $atf_settings;
 }
@@ -112,7 +134,25 @@ function atf_read_options()
 // This function adds an Options page in WP Admin
 if (is_admin() || strstr($_SERVER['PHP_SELF'], 'wp-admin/')) {
 	require_once(ALD_ATF_DIR . "/admin.inc.php");
-}
 
+	// Add meta links
+	function atf_plugin_actions( $links, $file ) {
+		static $plugin;
+		if (!$plugin) $plugin = plugin_basename(__FILE__);
+	 
+		// create link
+		if ($file == $plugin) {
+			$links[] = '<a href="' . admin_url( 'options-general.php?page=atf_options' ) . '">' . __('Settings', ATF_LOCAL_NAME ) . '</a>';
+			$links[] = '<a href="http://ajaydsouza.com/support/">' . __('Support', ATF_LOCAL_NAME ) . '</a>';
+			$links[] = '<a href="http://ajaydsouza.com/donate/">' . __('Donate', ATF_LOCAL_NAME ) . '</a>';
+		}
+		return $links;
+	}
+	global $wp_version;
+	if ( version_compare( $wp_version, '2.8alpha', '>' ) )
+		add_filter( 'plugin_row_meta', 'atf_plugin_actions', 10, 2 ); // only 2.8 and higher
+	else add_filter( 'plugin_action_links', 'atf_plugin_actions', 10, 2 );
+
+}
 
 ?>
