@@ -19,6 +19,7 @@ function atf_options() {
 
 	if ( isset( $_POST['atf_save'] ) && check_admin_referer( 'atf-admin-options' ) ) {
 		$atf_settings['enable_plugin'] = isset( $_POST['enable_plugin'] ) ? true : false;
+		$atf_settings['disable_notice'] = isset( $_POST['disable_notice'] ) ? true : false;
 		$atf_settings['htmlbefore'] = $_POST['htmlbefore'];
 		$atf_settings['htmlafter'] = $_POST['htmlafter'];
 		$atf_settings['copyrightnotice'] = $_POST['copyrightnotice'];
@@ -54,8 +55,16 @@ function atf_options() {
 	      <h3 class='hndle'><span><?php _e( 'General options', ATF_LOCAL_NAME ); ?></span></h3>
 	      <div class="inside">
 			<table class="form-table">
-				<tr><th scope="row"><label for="enable_plugin"><?php _e( 'Enable the plugin:', ATF_LOCAL_NAME ); ?></label></th>
-				<td><input type="checkbox" name="enable_plugin" id="enable_plugin" <?php if ( $atf_settings['enable_plugin'] ) echo 'checked="checked"' ?> /></td>
+				<tr>
+					<th scope="row"><label for="enable_plugin"><?php _e( 'Enable the plugin:', ATF_LOCAL_NAME ); ?></label></th>
+					<td><input type="checkbox" name="enable_plugin" id="enable_plugin" <?php if ( $atf_settings['enable_plugin'] ) echo 'checked="checked"' ?> /></td>
+				</tr>
+				<tr>
+					<th scope="row"><label for="disable_notice"><?php _e( 'Disable admin-wide notice:', ATF_LOCAL_NAME ); ?></label></th>
+					<td>
+						<input type="checkbox" name="disable_notice" id="disable_notice" <?php if ( $atf_settings['disable_notice'] ) echo 'checked="checked"' ?> />
+						<p class="description"><?php _e( 'Disables the "Add to Feed plugin is disabled." notice when the above option is unchecked.', ATF_LOCAL_NAME ) ?></p>
+					</td>
 				</tr>
 				<tr style="vertical-align: top; "><td scope="row" colspan="2">
 					<label><input type="checkbox" name="addhtmlbefore" id="addhtmlbefore" <?php if ( $atf_settings['addhtmlbefore'] ) echo 'checked="checked"' ?> /> <?php _e( 'Add the following to the feed before the content. (You can use HTML):', ATF_LOCAL_NAME ); ?></label>
@@ -69,11 +78,13 @@ function atf_options() {
 					<label><input type="checkbox" name="addcopyright" id="addcopyright" <?php if ( $atf_settings['addcopyright'] ) echo 'checked="checked"' ?> /> <?php _e( 'Add the following copyright notice to the feed (You can use HTML):', ATF_LOCAL_NAME ); ?></label>
 					<br /><textarea name="copyrightnotice" id="copyrightnotice" rows="15" cols="80"><?php echo stripslashes( $atf_settings['copyrightnotice'] ); ?></textarea></td>
 				</tr>
-				<tr><th scope="row"><label for="addtitle"><?php _e( 'Add a link to the title of the post in the feed:', ATF_LOCAL_NAME ); ?></label></th>
-				<td><input type="checkbox" name="addtitle" id="addtitle" <?php if ( $atf_settings['addtitle'] ) echo 'checked="checked"' ?> /></td>
+				<tr>
+					<th scope="row"><label for="addtitle"><?php _e( 'Add a link to the title of the post in the feed:', ATF_LOCAL_NAME ); ?></label></th>
+					<td><input type="checkbox" name="addtitle" id="addtitle" <?php if ( $atf_settings['addtitle'] ) echo 'checked="checked"' ?> /></td>
 				</tr>
-				<tr><th scope="row"><label for="addcredit"><?php _e( 'Add a link to "Add to Feed" plugin page:', ATF_LOCAL_NAME ); ?></label></th>
-				<td><input type="checkbox" name="addcredit" id="addcredit" <?php if ( $atf_settings['addcredit'] ) echo 'checked="checked"' ?> /></td>
+				<tr>
+					<th scope="row"><label for="addcredit"><?php _e( 'Add a link to "Add to Feed" plugin page:', ATF_LOCAL_NAME ); ?></label></th>
+					<td><input type="checkbox" name="addcredit" id="addcredit" <?php if ( $atf_settings['addcredit'] ) echo 'checked="checked"' ?> /></td>
 				</tr>
 			</table>
 	      </div>
@@ -164,7 +175,7 @@ function atf_admin_notice() {
 
 	$plugin_settings_page = admin_url( 'options-general.php?page=atf_options' );
 
-	if ( $atf_settings['enable_plugin'] ) {
+	if ( $atf_settings['enable_plugin'] || $atf_settings['disable_notice'] ) {
 		return;
 	}
 
@@ -173,7 +184,7 @@ function atf_admin_notice() {
 	}
 
     echo '<div class="error">
-       <p>' . sprintf( __( 'Add to Feed plugin is disabled. Please visit the <a href="%s">plugin settings page</a> to enable', ATF_LOCAL_NAME ), $plugin_settings_page ) . '</p>
+       <p>' . sprintf( __( 'Add to Feed plugin is disabled. Please visit the <a href="%s">plugin settings page</a> to enable the plugin or disable this notice.', ATF_LOCAL_NAME ), $plugin_settings_page ) . '</p>
     </div>';
 }
 add_action( 'admin_notices', 'atf_admin_notice' );
