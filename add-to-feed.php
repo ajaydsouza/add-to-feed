@@ -170,7 +170,7 @@ if ( is_admin() || strstr( $_SERVER['PHP_SELF'], 'wp-admin/' ) ) {
 	 *  Load the admin pages if we're in the Admin.
 	 *
 	 */
-	require_once(ALD_ATF_DIR . "/admin.inc.php");
+	require_once( ALD_ATF_DIR . "/admin.inc.php" );
 
 	/**
 	 * Adding WordPress plugin action links.
@@ -210,13 +210,7 @@ if ( is_admin() || strstr( $_SERVER['PHP_SELF'], 'wp-admin/' ) ) {
 		}
 		return $links;
 	}
-
-	global $wp_version;
-	if ( version_compare( $wp_version, '2.8alpha', '>' ) ) {
-		add_filter( 'plugin_row_meta', 'atf_plugin_actions', 10, 2 ); // only 2.8 and higher
-	} else {
-		add_filter( 'plugin_action_links', 'atf_plugin_actions', 10, 2 );
-	}
+	add_filter( 'plugin_row_meta', 'atf_plugin_actions', 10, 2 ); // only 2.8 and higher
 
 } // End admin.inc
 
