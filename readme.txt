@@ -17,22 +17,26 @@ If you are looking for more power, check out <a href="http://ajaydsouza.com/word
 
 == Installation ==
 
-1. Download Add to Feed. 
+1. Download Add to Feed.
 
 2. Extract the contents of add-to-feed.zip to wp-content/plugins/ folder. You should get a folder called add-to-feed.
 
-3. Activate the Plugin in WP-Admin. 
+3. Activate the Plugin in WP-Admin.
 
 4. Goto Settings > Add to Feed to customize
 
 == Upgrade Notice ==
 
-= 1.2 =
-* Modified: Redesigned admin interface
-* Modified: Plugin comes disabled by default. Visit the admin page to enable
-* Fixed: php warnings
+= 1.3 =
+New admin interface
+
 
 == Changelog ==
+
+= 1.3 =
+* Modified: Completely redesigned admin interface
+* Fixed: Integration with feed will also work well with excerpts
+* Fixed: PHP notices when WP_DEBUG is set to true
 
 = 1.2 =
 * Modified: Redesigned admin interface
