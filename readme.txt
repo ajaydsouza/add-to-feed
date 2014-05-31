@@ -3,8 +3,8 @@ Tags: Add to Feed, feeds, feed, copyright
 Contributors: Ajay D'Souza
 Donate link: http://ajaydsouza.com/donate/
 Stable tag: trunk
-Requires at least: 3.0
-Tested up to: 3.5
+Requires at least: 3.5
+Tested up to: 4.0
 License: GPLv2
 
 Add a copyright notice and/or custom text/HTML to your feed.
@@ -58,7 +58,7 @@ New admin interface
 
 == Frequently Asked Questions ==
 
-If your question isn't listed here, please post a comment at the <a href="http://wordpress.org/tags/add-to-feed?forum_id=10">WordPress.org support forum</a>. I monitor the forums on an ongoing basis. If you're looking for more advanced support, please see <a href="http://ajaydsouza.com/support/">details here</a>.
+If your question isn't listed here, please post a comment at the <a href="http://wordpress.org/support/plugin/add-to-feed">WordPress.org support forum</a>. I monitor the forums on an ongoing basis. If you're looking for more advanced _paid_ support, please see <a href="http://ajaydsouza.com/support/">details here</a>.
 
 = Can I customize what is displayed? =
 
