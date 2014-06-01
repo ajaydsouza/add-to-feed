@@ -27,6 +27,7 @@ function atf_options() {
 		$atf_settings['addhtmlafter'] = isset( $_POST['addhtmlafter'] ) ? true : false;
 		$atf_settings['addcopyright'] = isset( $_POST['addcopyright'] ) ? true : false;
 		$atf_settings['addtitle'] = isset( $_POST['addtitle'] ) ? true : false;
+		$atf_settings['titletext'] = $_POST['titletext'];
 		$atf_settings['addcredit'] = isset( $_POST['addcredit'] ) ? true : false;
 
 		update_option( 'ald_atf_settings', $atf_settings );
@@ -66,21 +67,24 @@ function atf_options() {
 						<p class="description"><?php _e( 'Disables the "Add to Feed plugin is disabled." notice when the above option is unchecked.', 'add-to-feed' ) ?></p>
 					</td>
 				</tr>
-				<tr style="vertical-align: top; "><td scope="row" colspan="2">
+				<tr><td scope="row" colspan="2">
 					<label><input type="checkbox" name="addhtmlbefore" id="addhtmlbefore" <?php if ( $atf_settings['addhtmlbefore'] ) echo 'checked="checked"' ?> /> <?php _e( 'Add the following to the feed before the content. (You can use HTML):', 'add-to-feed' ); ?></label>
 					<br /><textarea name="htmlbefore" id="htmlbefore" rows="15" cols="80"><?php echo stripslashes( $atf_settings['htmlbefore'] ); ?></textarea></td>
 				</tr>
-				<tr style="vertical-align: top; "><td scope="row" colspan="2">
+				<tr><td scope="row" colspan="2">
 					<label><input type="checkbox" name="addhtmlafter" id="addhtmlafter" <?php if ( $atf_settings['addhtmlafter'] ) echo 'checked="checked"' ?> /> <?php _e( 'Add the following to the feed after the content. (You can use HTML):', 'add-to-feed' ); ?></label>
 					<br /><textarea name="htmlafter" id="htmlafter" rows="15" cols="80"><?php echo stripslashes( $atf_settings['htmlafter'] ); ?></textarea></td>
 				</tr>
-				<tr style="vertical-align: top; "><td scope="row" colspan="2">
+				<tr><td scope="row" colspan="2">
 					<label><input type="checkbox" name="addcopyright" id="addcopyright" <?php if ( $atf_settings['addcopyright'] ) echo 'checked="checked"' ?> /> <?php _e( 'Add the following copyright notice to the feed (You can use HTML):', 'add-to-feed' ); ?></label>
 					<br /><textarea name="copyrightnotice" id="copyrightnotice" rows="15" cols="80"><?php echo stripslashes( $atf_settings['copyrightnotice'] ); ?></textarea></td>
 				</tr>
 				<tr>
-					<th scope="row"><label for="addtitle"><?php _e( 'Add a link to the title of the post in the feed:', 'add-to-feed' ); ?></label></th>
-					<td><input type="checkbox" name="addtitle" id="addtitle" <?php if ( $atf_settings['addtitle'] ) echo 'checked="checked"' ?> /></td>
+					<td scope="row" colspan="2">
+						<label><input type="checkbox" name="addtitle" id="addtitle" <?php if ( $atf_settings['addtitle'] ) echo 'checked="checked"' ?> /> <?php _e( 'Add a link to the title of the post in the feed. Customize this below', 'add-to-feed' ); ?></label>
+						<br /><textarea name="titletext" id="titletext" rows="5" cols="80"><?php echo stripslashes( $atf_settings['titletext'] ); ?></textarea>
+						<p class="description"><?php _e( 'The above text will be added to the feed. You can use %title% to add a link to the post, %date% and %time% to display the date and time of the post respectively', 'add-to-feed' ); ?></p>
+					</td>
 				</tr>
 				<tr>
 					<th scope="row"><label for="addcredit"><?php _e( 'Add a link to "Add to Feed" plugin page:', 'add-to-feed' ); ?></label></th>

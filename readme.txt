@@ -28,14 +28,16 @@ If you are looking for more power, check out <a href="http://ajaydsouza.com/word
 == Upgrade Notice ==
 
 = 1.3 =
-New admin interface; disable admin notice
+New admin interface; disable admin notice; customise the title text; bug fixes;
+Check the Changelog for detailed list of changes.
 
 
 == Changelog ==
 
 = 1.3 =
-* Modified: Completely redesigned admin interface
+* New: Completely redesigned admin interface
 * New: Option to disable the admin-wide notice when the plugin is disabled
+* New: Customise the title text that will be displayed.
 * Fixed: Integration with feed will also work well with excerpts
 * Fixed: PHP notices when WP_DEBUG is set to true
 

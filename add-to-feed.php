@@ -74,7 +74,19 @@ function ald_atf( $content ) {
 		}
 
 		if ( $atf_settings['addtitle'] ) {
-			$str_after .= '<a href="' . get_permalink() . '">' . the_title( '', '', false ) . '</a> was first posted on ' . get_the_time( 'F j, Y' ) . ' at ' . get_the_time( 'g:i a' ) . '.';
+			$title = '<a href="' . get_permalink() . '">' . the_title( '', '', false ) . '</a>';
+			$search_array = array(
+				'%title%',
+				'%date%',
+				'%time%',
+			);
+			$replace_array = array(
+				$title,
+				get_the_time( 'F j, Y' ),
+				get_the_time( 'g:i a' ),
+			);
+			$str_after .= str_replace( $search_array, $replace_array, $atf_settings['titletext'] );
+//			$str_after .= '<a href="' . get_permalink() . '">' . the_title( '', '', false ) . '</a> was first posted on ' . get_the_time( 'F j, Y' ) . ' at ' . get_the_time( 'g:i a' ) . '.';
 			$str_after .= '<br />';
 		}
 
@@ -111,6 +123,8 @@ function atf_default_options() {
 	$copyrightnotice .= __( 'Use of this feed is for personal non-commercial use only. If you are not reading this article in your feed reader, then the site is guilty of copyright infringement. Please contact me at ', 'add-to-feed' );
 	$copyrightnotice .= get_option( 'admin_email' ) . ".";
 
+	$titletext = __( '%title% was first posted on %date% at %time%.', 'add-to-feed' );
+
 	$atf_settings = array (
 		'enable_plugin' 	=> false,		// Add HTML to Feed?
 		'disable_notice'	=> false,	// Disable notice that is displayed when enable_plugin is false
@@ -120,6 +134,7 @@ function atf_default_options() {
 		'addhtmlbefore' 	=> false,		// Add HTML to Feed?
 		'addhtmlafter' 		=> false,		// Add HTML to Feed?
 		'addtitle' 			=> true,		// Add title to the post?
+		'titletext'			=> $titletext,	// Custom text when adding a link to the post title
 		'addcopyright' 		=> true,		// Add copyright notice?
 		'addcredit' 		=> false,		// Show credits?
 	);
