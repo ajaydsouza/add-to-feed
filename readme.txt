@@ -1,6 +1,6 @@
 === Add to Feed ===
 Tags: Add to Feed, feeds, feed, copyright
-Contributors: Ajay D'Souza
+Contributors: Ajay
 Donate link: http://ajaydsouza.com/donate/
 Stable tag: trunk
 Requires at least: 3.5
