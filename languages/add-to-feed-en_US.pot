@@ -2,124 +2,166 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Contextual Related Posts\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-07 17:36-0000\n"
+"POT-Creation-Date: 2014-06-01 12:34-0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ajay D'Souza <me@ajaydsouza.com>\n"
 "Language-Team:  <me@ajaydsouza.com>\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: English\n"
 "X-Poedit-KeywordsList: __;_e;_c;__ngettext\n"
 "X-Poedit-Basepath: ../\n"
+"X-Generator: Poedit 1.6.5\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: add-to-feed.php:93
-msgid "Use of this feed is for personal non-commercial use only. If you are not reading this article in your feed reader, then the site is guilty of copyright infringement. Please contact me at "
+#: add-to-feed.php:100
+msgid "Feed enhanced by "
 msgstr ""
 
-#: add-to-feed.php:145
+#: add-to-feed.php:123
+msgid ""
+"Use of this feed is for personal non-commercial use only. If you are not "
+"reading this article in your feed reader, then the site is guilty of "
+"copyright infringement. Please contact me at "
+msgstr ""
+
+#: add-to-feed.php:126
+msgid "%title% was first posted on %date% at %time%."
+msgstr ""
+
+#: add-to-feed.php:196
 msgid "Settings"
 msgstr ""
 
-#: add-to-feed.php:146
-#: admin.inc.php:69
+#: add-to-feed.php:219 admin.inc.php:162
 msgid "Support"
 msgstr ""
 
-#: add-to-feed.php:147
+#: add-to-feed.php:220
 msgid "Donate"
 msgstr ""
 
-#: admin.inc.php:23
+#: admin.inc.php:35
 msgid "Options saved successfully."
 msgstr ""
 
-#: admin.inc.php:33
+#: admin.inc.php:45
 msgid "Options set to Default."
 msgstr ""
 
-#: admin.inc.php:46
-msgid "Support the development"
+#: admin.inc.php:55 admin.inc.php:123 admin.inc.php:143 admin.inc.php:153
+msgid "Click to toggle"
 msgstr ""
 
-#: admin.inc.php:54
-msgid "Enter amount in USD: "
+#: admin.inc.php:56
+msgid "General options"
 msgstr ""
 
-#: admin.inc.php:58
-msgid "Send your donation to the author of"
+#: admin.inc.php:60
+msgid "Enable the plugin:"
 msgstr ""
 
 #: admin.inc.php:64
-msgid "Quick links"
-msgstr ""
-
-#: admin.inc.php:66
-msgid "Add to Feed "
-msgstr ""
-
-#: admin.inc.php:66
-msgid "plugin page"
+msgid "Disable admin-wide notice:"
 msgstr ""
 
 #: admin.inc.php:67
-msgid "Other plugins"
+msgid ""
+"Disables the \"Add to Feed plugin is disabled.\" notice when the above "
+"option is unchecked."
 msgstr ""
 
-#: admin.inc.php:68
-msgid "Ajay's blog"
+#: admin.inc.php:71
+msgid "Add the following to the feed before the content. (You can use HTML):"
 msgstr ""
 
-#: admin.inc.php:70
-msgid "Follow @ajaydsouza on Twitter"
+#: admin.inc.php:75
+msgid "Add the following to the feed after the content. (You can use HTML):"
 msgstr ""
 
-#: admin.inc.php:74
-msgid "Recent developments"
+#: admin.inc.php:79
+msgid "Add the following copyright notice to the feed (You can use HTML):"
 msgstr ""
 
-#: admin.inc.php:88
-msgid "Enable the plugin: "
+#: admin.inc.php:84
+msgid "Add a link to the title of the post in the feed. Customize this below"
 msgstr ""
 
-#: admin.inc.php:92
-msgid "Add the following to the feed before the content. (You can use HTML): "
+#: admin.inc.php:86
+msgid ""
+"The above text will be added to the feed. You can use %title% to add a link "
+"to the post, %date% and %time% to display the date and time of the post "
+"respectively"
 msgstr ""
 
-#: admin.inc.php:96
-msgid "Add the following to the feed after the content. (You can use HTML): "
+#: admin.inc.php:90
+msgid "Add a link to \"Add to Feed\" plugin page:"
 msgstr ""
 
-#: admin.inc.php:100
-msgid "Add the following copyright notice to the feed (You can use HTML): "
+#: admin.inc.php:97
+msgid "Save Options"
 msgstr ""
 
-#: admin.inc.php:103
-msgid "Add a link to the title of the post in the feed: "
+#: admin.inc.php:98
+msgid "Default Options"
 msgstr ""
 
-#: admin.inc.php:106
-msgid "Add a link to \"Add to All\" plugin page: "
-msgstr ""
-
-#: admin.inc.php:112
+#: admin.inc.php:98
 msgid "Do you want to set options to Default?"
 msgstr ""
 
-#: admin.inc.php:127
-msgid "plugin settings page"
+#: admin.inc.php:124
+msgid "Support the development"
 msgstr ""
 
-#: admin.inc.php:134
-msgid "Add to Feed plugin is disabled. Please visit the "
+#: admin.inc.php:131
+msgid "Donation for Add to Feed"
 msgstr ""
 
-#: admin.inc.php:134
-msgid " to enable."
+#: admin.inc.php:133
+msgid "Enter amount in USD: "
+msgstr ""
+
+#: admin.inc.php:137
+msgid "Send your donation to the author of Add to Feed"
+msgstr ""
+
+#: admin.inc.php:144
+msgid "Follow me"
 msgstr ""
 
 #: admin.inc.php:154
-msgid "Add to Feed"
+msgid "Quick links"
 msgstr ""
 
+#: admin.inc.php:158
+msgid "Add to Feed plugin page"
+msgstr ""
+
+#: admin.inc.php:159
+msgid "Other plugins"
+msgstr ""
+
+#: admin.inc.php:160
+msgid "Ajay's blog"
+msgstr ""
+
+#: admin.inc.php:161
+msgid "FAQ"
+msgstr ""
+
+#: admin.inc.php:163
+msgid "Reviews"
+msgstr ""
+
+#: admin.inc.php:191
+#, php-format
+msgid ""
+"Add to Feed plugin is disabled. Please visit the <a href=\"%s\">plugin "
+"settings page</a> to enable the plugin or disable this notice."
+msgstr ""
+
+#: admin.inc.php:203
+msgid "Add to Feed"
+msgstr ""
