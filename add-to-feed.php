@@ -27,11 +27,6 @@ if ( ! defined( 'WPINC' ) ) {
  */
 define('ALD_ATF_DIR', dirname(__FILE__));
 
-/**
- * Localisation name.
- */
-define('ATF_LOCAL_NAME', 'atf');
-
 
 // Set the global variables for Better Search path and URL
 $atf_path = plugin_dir_path( __FILE__ );
@@ -49,7 +44,7 @@ $atf_settings = atf_read_options();
  * Function to load translation files.
  */
 function atf_lang_init() {
-	load_plugin_textdomain( ATF_LOCAL_NAME, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	load_plugin_textdomain( 'add-to-feed', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 add_action('init', 'atf_lang_init');
 
@@ -90,7 +85,7 @@ function ald_atf( $content ) {
 
 		if ( $atf_settings['addcredit'] ) {
 			$creditline = '<br /><span style="font-size: 0.8em">';
-			$creditline .= __( 'Feed enhanced by ', ATF_LOCAL_NAME );
+			$creditline .= __( 'Feed enhanced by ', 'add-to-feed' );
 			$creditline .= '<a href="http://ajaydsouza.com/wordpress/plugins/add-to-feed/" rel="nofollow">Add To Feed</a>';
 
 			$str_after .= $creditline;
@@ -113,7 +108,7 @@ add_filter( 'the_content_feed', 'ald_atf', 99999999 );
  */
 function atf_default_options() {
 	$copyrightnotice = '&copy;' . date( "Y" ) . ' &quot;<a href="' . get_option( 'home' ) . '">' . get_option( 'blogname' ) . '</a>&quot;. ';
-	$copyrightnotice .= __( 'Use of this feed is for personal non-commercial use only. If you are not reading this article in your feed reader, then the site is guilty of copyright infringement. Please contact me at ', ATF_LOCAL_NAME );
+	$copyrightnotice .= __( 'Use of this feed is for personal non-commercial use only. If you are not reading this article in your feed reader, then the site is guilty of copyright infringement. Please contact me at ', 'add-to-feed' );
 	$copyrightnotice .= get_option( 'admin_email' ) . ".";
 
 	$atf_settings = array (
@@ -183,7 +178,7 @@ if ( is_admin() || strstr( $_SERVER['PHP_SELF'], 'wp-admin/' ) ) {
 
 		return array_merge(
 			array(
-				'settings' => '<a href="' . admin_url( 'options-general.php?page=atf_options' ) . '">' . __( 'Settings', ATF_LOCAL_NAME ) . '</a>'
+				'settings' => '<a href="' . admin_url( 'options-general.php?page=atf_options' ) . '">' . __( 'Settings', 'add-to-feed' ) . '</a>'
 			),
 			$links
 		);
@@ -206,8 +201,8 @@ if ( is_admin() || strstr( $_SERVER['PHP_SELF'], 'wp-admin/' ) ) {
 
 		// create link
 		if ( $file == $plugin ) {
-			$links[] = '<a href="http://wordpress.org/support/plugin/better-search">' . __( 'Support', ATF_LOCAL_NAME ) . '</a>';
-			$links[] = '<a href="http://ajaydsouza.com/donate/">' . __( 'Donate', ATF_LOCAL_NAME ) . '</a>';
+			$links[] = '<a href="http://wordpress.org/support/plugin/better-search">' . __( 'Support', 'add-to-feed' ) . '</a>';
+			$links[] = '<a href="http://ajaydsouza.com/donate/">' . __( 'Donate', 'add-to-feed' ) . '</a>';
 		}
 		return $links;
 	}

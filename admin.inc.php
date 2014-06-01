@@ -31,7 +31,7 @@ function atf_options() {
 
 		update_option( 'ald_atf_settings', $atf_settings );
 
-		$str = '<div id="message" class="updated fade"><p>'. __( 'Options saved successfully.', ATF_LOCAL_NAME ) .'</p></div>';
+		$str = '<div id="message" class="updated fade"><p>'. __( 'Options saved successfully.', 'add-to-feed' ) .'</p></div>';
 		echo $str;
 	}
 
@@ -41,7 +41,7 @@ function atf_options() {
 		$atf_settings = atf_default_options();
 		update_option( 'ald_atf_settings', $atf_settings );
 
-		$str = '<div id="message" class="updated fade"><p>'. __( 'Options set to Default.', ATF_LOCAL_NAME ) .'</p></div>';
+		$str = '<div id="message" class="updated fade"><p>'. __( 'Options set to Default.', 'add-to-feed' ) .'</p></div>';
 		echo $str;
 	}
 ?>
@@ -51,47 +51,47 @@ function atf_options() {
 	<div id="post-body" class="metabox-holder columns-2">
 	<div id="post-body-content">
 	  <form method="post" id="atf_options" name="atf_options" onsubmit="return checkForm()">
-	    <div id="genopdiv" class="postbox"><div class="handlediv" title="<?php _e( 'Click to toggle', ATF_LOCAL_NAME ); ?>"><br /></div>
-	      <h3 class='hndle'><span><?php _e( 'General options', ATF_LOCAL_NAME ); ?></span></h3>
+	    <div id="genopdiv" class="postbox"><div class="handlediv" title="<?php _e( 'Click to toggle', 'add-to-feed' ); ?>"><br /></div>
+	      <h3 class='hndle'><span><?php _e( 'General options', 'add-to-feed' ); ?></span></h3>
 	      <div class="inside">
 			<table class="form-table">
 				<tr>
-					<th scope="row"><label for="enable_plugin"><?php _e( 'Enable the plugin:', ATF_LOCAL_NAME ); ?></label></th>
+					<th scope="row"><label for="enable_plugin"><?php _e( 'Enable the plugin:', 'add-to-feed' ); ?></label></th>
 					<td><input type="checkbox" name="enable_plugin" id="enable_plugin" <?php if ( $atf_settings['enable_plugin'] ) echo 'checked="checked"' ?> /></td>
 				</tr>
 				<tr>
-					<th scope="row"><label for="disable_notice"><?php _e( 'Disable admin-wide notice:', ATF_LOCAL_NAME ); ?></label></th>
+					<th scope="row"><label for="disable_notice"><?php _e( 'Disable admin-wide notice:', 'add-to-feed' ); ?></label></th>
 					<td>
 						<input type="checkbox" name="disable_notice" id="disable_notice" <?php if ( $atf_settings['disable_notice'] ) echo 'checked="checked"' ?> />
-						<p class="description"><?php _e( 'Disables the "Add to Feed plugin is disabled." notice when the above option is unchecked.', ATF_LOCAL_NAME ) ?></p>
+						<p class="description"><?php _e( 'Disables the "Add to Feed plugin is disabled." notice when the above option is unchecked.', 'add-to-feed' ) ?></p>
 					</td>
 				</tr>
 				<tr style="vertical-align: top; "><td scope="row" colspan="2">
-					<label><input type="checkbox" name="addhtmlbefore" id="addhtmlbefore" <?php if ( $atf_settings['addhtmlbefore'] ) echo 'checked="checked"' ?> /> <?php _e( 'Add the following to the feed before the content. (You can use HTML):', ATF_LOCAL_NAME ); ?></label>
+					<label><input type="checkbox" name="addhtmlbefore" id="addhtmlbefore" <?php if ( $atf_settings['addhtmlbefore'] ) echo 'checked="checked"' ?> /> <?php _e( 'Add the following to the feed before the content. (You can use HTML):', 'add-to-feed' ); ?></label>
 					<br /><textarea name="htmlbefore" id="htmlbefore" rows="15" cols="80"><?php echo stripslashes( $atf_settings['htmlbefore'] ); ?></textarea></td>
 				</tr>
 				<tr style="vertical-align: top; "><td scope="row" colspan="2">
-					<label><input type="checkbox" name="addhtmlafter" id="addhtmlafter" <?php if ( $atf_settings['addhtmlafter'] ) echo 'checked="checked"' ?> /> <?php _e( 'Add the following to the feed after the content. (You can use HTML):', ATF_LOCAL_NAME ); ?></label>
+					<label><input type="checkbox" name="addhtmlafter" id="addhtmlafter" <?php if ( $atf_settings['addhtmlafter'] ) echo 'checked="checked"' ?> /> <?php _e( 'Add the following to the feed after the content. (You can use HTML):', 'add-to-feed' ); ?></label>
 					<br /><textarea name="htmlafter" id="htmlafter" rows="15" cols="80"><?php echo stripslashes( $atf_settings['htmlafter'] ); ?></textarea></td>
 				</tr>
 				<tr style="vertical-align: top; "><td scope="row" colspan="2">
-					<label><input type="checkbox" name="addcopyright" id="addcopyright" <?php if ( $atf_settings['addcopyright'] ) echo 'checked="checked"' ?> /> <?php _e( 'Add the following copyright notice to the feed (You can use HTML):', ATF_LOCAL_NAME ); ?></label>
+					<label><input type="checkbox" name="addcopyright" id="addcopyright" <?php if ( $atf_settings['addcopyright'] ) echo 'checked="checked"' ?> /> <?php _e( 'Add the following copyright notice to the feed (You can use HTML):', 'add-to-feed' ); ?></label>
 					<br /><textarea name="copyrightnotice" id="copyrightnotice" rows="15" cols="80"><?php echo stripslashes( $atf_settings['copyrightnotice'] ); ?></textarea></td>
 				</tr>
 				<tr>
-					<th scope="row"><label for="addtitle"><?php _e( 'Add a link to the title of the post in the feed:', ATF_LOCAL_NAME ); ?></label></th>
+					<th scope="row"><label for="addtitle"><?php _e( 'Add a link to the title of the post in the feed:', 'add-to-feed' ); ?></label></th>
 					<td><input type="checkbox" name="addtitle" id="addtitle" <?php if ( $atf_settings['addtitle'] ) echo 'checked="checked"' ?> /></td>
 				</tr>
 				<tr>
-					<th scope="row"><label for="addcredit"><?php _e( 'Add a link to "Add to Feed" plugin page:', ATF_LOCAL_NAME ); ?></label></th>
+					<th scope="row"><label for="addcredit"><?php _e( 'Add a link to "Add to Feed" plugin page:', 'add-to-feed' ); ?></label></th>
 					<td><input type="checkbox" name="addcredit" id="addcredit" <?php if ( $atf_settings['addcredit'] ) echo 'checked="checked"' ?> /></td>
 				</tr>
 			</table>
 	      </div>
 	    </div>
 		<p>
-		  <input type="submit" name="atf_save" id="atf_save" value="<?php _e( 'Save Options', ATF_LOCAL_NAME ); ?>" class="button button-primary" />
-		  <input type="submit" name="atf_default" id="atf_default" value="<?php _e( 'Default Options', ATF_LOCAL_NAME ); ?>" class="button button-secondary" onclick="if ( ! confirm( '<?php _e( "Do you want to set options to Default?", ATF_LOCAL_NAME ); ?>' ) ) return false;" />
+		  <input type="submit" name="atf_save" id="atf_save" value="<?php _e( 'Save Options', 'add-to-feed' ); ?>" class="button button-primary" />
+		  <input type="submit" name="atf_default" id="atf_default" value="<?php _e( 'Default Options', 'add-to-feed' ); ?>" class="button button-secondary" onclick="if ( ! confirm( '<?php _e( "Do you want to set options to Default?", 'add-to-feed' ); ?>' ) ) return false;" />
 		</p>
 		<?php wp_nonce_field( 'atf-admin-options' ); ?>
 	  </form>
@@ -116,28 +116,28 @@ function atf_options() {
  */
 function atf_admin_side() {
 ?>
-    <div id="donatediv" class="postbox"><div class="handlediv" title="<?php _e( 'Click to toggle', ATF_LOCAL_NAME ); ?>"><br /></div>
-      <h3 class='hndle'><span><?php _e( 'Support the development', ATF_LOCAL_NAME ); ?></span></h3>
+    <div id="donatediv" class="postbox"><div class="handlediv" title="<?php _e( 'Click to toggle', 'add-to-feed' ); ?>"><br /></div>
+      <h3 class='hndle'><span><?php _e( 'Support the development', 'add-to-feed' ); ?></span></h3>
       <div class="inside">
 		<div id="donate-form">
 			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 				<input type="hidden" name="cmd" value="_xclick">
 				<input type="hidden" name="business" value="donate@ajaydsouza.com">
 				<input type="hidden" name="lc" value="IN">
-				<input type="hidden" name="item_name" value="<?php _e( 'Donation for Add to Feed', ATF_LOCAL_NAME ); ?>">
+				<input type="hidden" name="item_name" value="<?php _e( 'Donation for Add to Feed', 'add-to-feed' ); ?>">
 				<input type="hidden" name="item_number" value="atf_admin">
-				<strong><?php _e( 'Enter amount in USD: ', ATF_LOCAL_NAME ); ?></strong> <input name="amount" value="10.00" size="6" type="text"><br />
+				<strong><?php _e( 'Enter amount in USD: ', 'add-to-feed' ); ?></strong> <input name="amount" value="10.00" size="6" type="text"><br />
 				<input type="hidden" name="currency_code" value="USD">
 				<input type="hidden" name="button_subtype" value="services">
 				<input type="hidden" name="bn" value="PP-BuyNowBF:btn_donate_LG.gif:NonHosted">
-				<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="<?php _e( 'Send your donation to the author of Add to Feed', ATF_LOCAL_NAME ); ?>">
+				<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="<?php _e( 'Send your donation to the author of Add to Feed', 'add-to-feed' ); ?>">
 				<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
 			</form>
 		</div>
       </div>
     </div>
-    <div id="followdiv" class="postbox"><div class="handlediv" title="<?php _e( 'Click to toggle', ATF_LOCAL_NAME ); ?>"><br /></div>
-      <h3 class='hndle'><span><?php _e( 'Follow me', ATF_LOCAL_NAME ); ?></span></h3>
+    <div id="followdiv" class="postbox"><div class="handlediv" title="<?php _e( 'Click to toggle', 'add-to-feed' ); ?>"><br /></div>
+      <h3 class='hndle'><span><?php _e( 'Follow me', 'add-to-feed' ); ?></span></h3>
       <div class="inside">
 		<div id="follow-us">
 			<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fajaydsouzacom&amp;width=292&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=false&amp;header=true&amp;appId=113175385243" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:62px;" allowTransparency="true"></iframe>
@@ -146,17 +146,17 @@ function atf_admin_side() {
 		</div>
       </div>
     </div>
-    <div id="qlinksdiv" class="postbox"><div class="handlediv" title="<?php _e( 'Click to toggle', ATF_LOCAL_NAME ); ?>"><br /></div>
-      <h3 class='hndle'><span><?php _e( 'Quick links', ATF_LOCAL_NAME ); ?></span></h3>
+    <div id="qlinksdiv" class="postbox"><div class="handlediv" title="<?php _e( 'Click to toggle', 'add-to-feed' ); ?>"><br /></div>
+      <h3 class='hndle'><span><?php _e( 'Quick links', 'add-to-feed' ); ?></span></h3>
       <div class="inside">
         <div id="quick-links">
 			<ul>
-				<li><a href="http://ajaydsouza.com/wordpress/plugins/add-to-feed/"><?php _e( 'Add to Feed plugin page', ATF_LOCAL_NAME ); ?></a></li>
-				<li><a href="http://ajaydsouza.com/wordpress/plugins/"><?php _e( 'Other plugins', ATF_LOCAL_NAME ); ?></a></li>
-				<li><a href="http://ajaydsouza.com/"><?php _e( "Ajay's blog", ATF_LOCAL_NAME ); ?></a></li>
-				<li><a href="https://wordpress.org/plugins/add-to-feed/faq/"><?php _e( 'FAQ', ATF_LOCAL_NAME ); ?></a></li>
-				<li><a href="http://wordpress.org/support/plugin/add-to-feed"><?php _e( 'Support', ATF_LOCAL_NAME ); ?></a></li>
-				<li><a href="https://wordpress.org/support/view/plugin-reviews/add-to-feed"><?php _e( 'Reviews', ATF_LOCAL_NAME ); ?></a></li>
+				<li><a href="http://ajaydsouza.com/wordpress/plugins/add-to-feed/"><?php _e( 'Add to Feed plugin page', 'add-to-feed' ); ?></a></li>
+				<li><a href="http://ajaydsouza.com/wordpress/plugins/"><?php _e( 'Other plugins', 'add-to-feed' ); ?></a></li>
+				<li><a href="http://ajaydsouza.com/"><?php _e( "Ajay's blog", 'add-to-feed' ); ?></a></li>
+				<li><a href="https://wordpress.org/plugins/add-to-feed/faq/"><?php _e( 'FAQ', 'add-to-feed' ); ?></a></li>
+				<li><a href="http://wordpress.org/support/plugin/add-to-feed"><?php _e( 'Support', 'add-to-feed' ); ?></a></li>
+				<li><a href="https://wordpress.org/support/view/plugin-reviews/add-to-feed"><?php _e( 'Reviews', 'add-to-feed' ); ?></a></li>
 			</ul>
         </div>
       </div>
@@ -184,7 +184,7 @@ function atf_admin_notice() {
 	}
 
     echo '<div class="error">
-       <p>' . sprintf( __( 'Add to Feed plugin is disabled. Please visit the <a href="%s">plugin settings page</a> to enable the plugin or disable this notice.', ATF_LOCAL_NAME ), $plugin_settings_page ) . '</p>
+       <p>' . sprintf( __( 'Add to Feed plugin is disabled. Please visit the <a href="%s">plugin settings page</a> to enable the plugin or disable this notice.', 'add-to-feed' ), $plugin_settings_page ) . '</p>
     </div>';
 }
 add_action( 'admin_notices', 'atf_admin_notice' );
@@ -196,7 +196,7 @@ add_action( 'admin_notices', 'atf_admin_notice' );
  */
 function atf_adminmenu() {
 
-	$plugin_page = add_options_page( __( "Add to Feed", ATF_LOCAL_NAME ), __( "Add to Feed", ATF_LOCAL_NAME ), 'manage_options', 'atf_options', 'atf_options');
+	$plugin_page = add_options_page( __( "Add to Feed", 'add-to-feed' ), __( "Add to Feed", 'add-to-feed' ), 'manage_options', 'atf_options', 'atf_options');
 	add_action( 'admin_head-'. $plugin_page, 'atf_adminhead' );
 }
 add_action( 'admin_menu', 'atf_adminmenu' );
