@@ -6,7 +6,7 @@
  *
  * @wordpress-plugin
  * Plugin Name: Add to Feed
- * Version:     1.2.1
+ * Version:     1.3
  * Plugin URI:  http://ajaydsouza.com/wordpress/plugins/add-to-feed/
  * Description: Add to Feed is a feed enhancement plugin that allows you to easily add a copyright notice and custom text/HTML to your WordPress blog feed. The custom text can be entered before and/or after the content of your blog post.
  * Author:      Ajay D'Souza
