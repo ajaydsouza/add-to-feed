@@ -15,7 +15,7 @@
  * License:		GPL-2.0+
  * License URI:	http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path:	/languages
-*/
+ */
 
 // If this file is called directly, then abort execution.
 if ( ! defined( 'WPINC' ) ) {
@@ -25,7 +25,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Holds the filesystem directory path.
  */
-define('ALD_ATF_DIR', dirname(__FILE__));
+define( 'ALD_ATF_DIR', dirname( __FILE__ ) );
 
 
 // Set the global variables for Better Search path and URL
@@ -46,7 +46,7 @@ $atf_settings = atf_read_options();
 function atf_lang_init() {
 	load_plugin_textdomain( 'add-to-feed', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
-add_action('init', 'atf_lang_init');
+add_action( 'init', 'atf_lang_init' );
 
 
 /**
@@ -59,10 +59,10 @@ function ald_atf( $content ) {
 
 	global $atf_settings;
 
-	$str_before ='';
+	$str_before = '';
 	$str_after = '<hr style="border-top:black solid 1px" />';
 
-    if ( is_feed() && $atf_settings['enable_plugin'] ) {
+	if ( is_feed() && $atf_settings['enable_plugin'] ) {
 		if ( $atf_settings['addhtmlbefore'] ) {
 			$str_before .= stripslashes( $atf_settings['htmlbefore'] );
 			$str_before .= '<br />';
@@ -86,7 +86,7 @@ function ald_atf( $content ) {
 				get_the_time( 'g:i a' ),
 			);
 			$str_after .= str_replace( $search_array, $replace_array, $atf_settings['titletext'] );
-//			$str_after .= '<a href="' . get_permalink() . '">' . the_title( '', '', false ) . '</a> was first posted on ' . get_the_time( 'F j, Y' ) . ' at ' . get_the_time( 'g:i a' ) . '.';
+			// $str_after .= '<a href="' . get_permalink() . '">' . the_title( '', '', false ) . '</a> was first posted on ' . get_the_time( 'F j, Y' ) . ' at ' . get_the_time( 'g:i a' ) . '.';
 			$str_after .= '<br />';
 		}
 
@@ -104,10 +104,10 @@ function ald_atf( $content ) {
 			$str_after .= '<br />';
 		}
 
-        return $str_before.$content.$str_after;
-    } else {
-        return $content;
-    }
+		return $str_before.$content.$str_after;
+	} else {
+		return $content;
+	}
 }
 add_filter( 'the_excerpt_rss', 'ald_atf', 99999999 );
 add_filter( 'the_content_feed', 'ald_atf', 99999999 );
@@ -119,13 +119,13 @@ add_filter( 'the_content_feed', 'ald_atf', 99999999 );
  * @return array Default options
  */
 function atf_default_options() {
-	$copyrightnotice = '&copy;' . date( "Y" ) . ' &quot;<a href="' . get_option( 'home' ) . '">' . get_option( 'blogname' ) . '</a>&quot;. ';
+	$copyrightnotice = '&copy;' . date( 'Y' ) . ' &quot;<a href="' . get_option( 'home' ) . '">' . get_option( 'blogname' ) . '</a>&quot;. ';
 	$copyrightnotice .= __( 'Use of this feed is for personal non-commercial use only. If you are not reading this article in your feed reader, then the site is guilty of copyright infringement. Please contact me at ', 'add-to-feed' );
-	$copyrightnotice .= get_option( 'admin_email' ) . ".";
+	$copyrightnotice .= get_option( 'admin_email' ) . '.';
 
 	$titletext = __( '%title% was first posted on %date% at %time%.', 'add-to-feed' );
 
-	$atf_settings = array (
+	$atf_settings = array(
 		'enable_plugin' 	=> false,		// Add HTML to Feed?
 		'disable_notice'	=> false,	// Disable notice that is displayed when enable_plugin is false
 		'htmlbefore' 		=> '',		// HTML you want added to the feed
@@ -156,7 +156,7 @@ function atf_read_options() {
 	unset( $atf_settings[0] ); // produced by the (array) casting when there's nothing in the DB
 
 	// If there are any new options added to the Default Options array, let's add them
-	foreach ( $defaults as $k=>$v ) {
+	foreach ( $defaults as $k => $v ) {
 		if ( ! isset( $atf_settings[ $k ] ) ) {
 			$atf_settings[ $k ] = $v;
 		}
@@ -173,15 +173,13 @@ function atf_read_options() {
 
 /**
  *  Admin option
- *
  */
 if ( is_admin() || strstr( $_SERVER['PHP_SELF'], 'wp-admin/' ) ) {
 
 	/**
 	 *  Load the admin pages if we're in the Admin.
-	 *
 	 */
-	require_once( ALD_ATF_DIR . "/admin.inc.php" );
+	require_once( ALD_ATF_DIR . '/admin.inc.php' );
 
 	/**
 	 * Adding WordPress plugin action links.
@@ -193,7 +191,7 @@ if ( is_admin() || strstr( $_SERVER['PHP_SELF'], 'wp-admin/' ) ) {
 
 		return array_merge(
 			array(
-				'settings' => '<a href="' . admin_url( 'options-general.php?page=atf_options' ) . '">' . __( 'Settings', 'add-to-feed' ) . '</a>'
+				'settings' => '<a href="' . admin_url( 'options-general.php?page=atf_options' ) . '">' . __( 'Settings', 'add-to-feed' ) . '</a>',
 			),
 			$links
 		);
@@ -204,7 +202,7 @@ if ( is_admin() || strstr( $_SERVER['PHP_SELF'], 'wp-admin/' ) ) {
 	/**
 	 * Add meta links on Plugins page.
 	 *
-	 * @param array $links
+	 * @param array  $links
 	 * @param string $file
 	 * @return array
 	 */
@@ -225,4 +223,3 @@ if ( is_admin() || strstr( $_SERVER['PHP_SELF'], 'wp-admin/' ) ) {
 
 } // End admin.inc
 
-?>
